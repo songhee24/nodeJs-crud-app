@@ -4,6 +4,9 @@ const app = express()
 const db = require('./queries')
 const port = 3000
 
+const swaggerUi = require('swagger-ui-express'),
+swaggerDocument = require('./swagger.json');
+
 app.use(bodyParser.json())
 app.use(
     bodyParser.urlencoded({
@@ -11,8 +14,14 @@ app.use(
     })
 )
 
+app.use(
+    '/api-docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerDocument)
+);
+
 app.get('/', (request, response) => {
-    response.json({ info: 'Node.js, Express, and Postgres API' })
+    response.json({ info: 'Node.js, Express, and Postgres API Application for students' })
 })
 
 app.get('/users', db.getUsers)
