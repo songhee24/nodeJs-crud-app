@@ -1,19 +1,12 @@
 require('dotenv').config();
 
 const Pool = require('pg').Pool
-
-const connectionString = `postgres://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`;
-
 const pool = new Pool({
-    connectionString: connectionString,
-    ssl: {
-        rejectUnauthorized: false
-    }
-    // user: process.env.PG_USER,
-    // host: process.env.PG_HOST,
-    // database: process.env.PG_DATABASE,
-    // password: process.env.PG_PASSWORD,
-    // port: process.env.PG_PORT,
+    user: process.env.PG_USER,
+    host: process.env.PG_HOST,
+    database: process.env.PG_DATABASE,
+    password: process.env.PG_PASSWORD,
+    port: process.env.PG_PORT,
 })
 
 const getUsers = (request, response) => {
