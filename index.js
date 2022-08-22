@@ -4,6 +4,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
+const cors = require('cors');
 
 const swaggerUi = require('swagger-ui-express'),
 swaggerDocument = require('./swagger.json');
@@ -12,6 +13,10 @@ swaggerDocument = require('./swagger.json');
 app.listen(process.env.PORT || 3000, () => {
     console.log(`App running on port ${process.env.PORT || 3000}.`)
 })
+
+app.use(cors({
+    origin: '*'
+}));
 
 app.use(bodyParser.json())
 app.use(
