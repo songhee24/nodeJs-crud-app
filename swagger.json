@@ -106,12 +106,8 @@
     },
     "definitions": {
         "User": {
-            "required": ["name", "id", "email"],
+            "required": ["name", "email"],
             "properties": {
-                "id": {
-                    "type": "integer",
-                    "uniqueItems": true
-                },
                 "name": {
                     "type": "string"
                 },
