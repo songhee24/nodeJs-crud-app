@@ -9,7 +9,7 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "https://fake-api-backend.herokuapp.com",
+    "host": "fake-api-backend.herokuapp.com",
     "basePath": "/",
     "tags": [
         {
